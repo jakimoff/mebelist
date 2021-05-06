@@ -1,0 +1,20 @@
+.recommended-category--wrap
+  .container
+    .recommended-category
+      h2.title-global.title_24
+        | Рекомендуемые товары по категориям
+      ._nav
+        transition(name="opacity")
+          div(v-if="opacity_nav")
+            .btn_global(
+              v-for="item in categories"
+              :class="{'link--active': item.id === current_category}"
+              @click="set_products(item.id)"
+              ).text_14
+              | {{ item.text }}
+      transition(name="opacity")
+        .row(
+          :class="{load:!opacity_products}"
+          ).loaded
+          .col-xl-3.col-lg-4.col-md-6.col-sm-6.col-xs-12(v-for="item in products")
+            ProductView(:item="item")

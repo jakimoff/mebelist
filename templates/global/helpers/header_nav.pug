@@ -1,0 +1,23 @@
+.catalog--wrap
+  .catalog
+    ._nav
+      button(
+        v-for="(item, key) in header_menu"
+        :key="key"
+        :class="{'menu-active': current_category == key}"
+        @mouseover="current_category = key"
+        type='button'
+        )._btn.text_16
+          nuxt-link(:to="`/catalog/`+item.slug")
+            | {{ item.category }}
+    ._main
+      ._box(v-for="(item, key) in header_menu")
+        transition-group(name="fade" tag="div")
+          div(:key="key" v-if="current_category == key")
+            ._content
+              ul._list(v-for="categories in (chunk(item.items))")
+                li._item(v-for="category in categories")
+                  nuxt-link(:to="category.slug")._link.text_16
+                    | {{ category.text }}
+            ._photo
+              Img(:link="item.img.src" :alt="item.img.alt" :parent="`catalog`")

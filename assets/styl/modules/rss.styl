@@ -1,0 +1,137 @@
+.rss
+  position relative
+  padding 40px
+  margin 0 auto
+  width 100%
+  max-width 1180px
+  display flex
+  justify-content flex-start
+  align-items center
+  border-radius 8px
+  background linear-gradient(95.53deg, #CDEEFF 0%, #B8D9FF 100%)
+  @media $md-and-smaller
+    padding-top 0
+    flex-direction column
+  @media $xs-and-smaller
+    padding 0 32px 32px
+  &--wrap
+    width 100%
+    background white
+    padding-bottom 100px
+    @media $sm-and-smaller
+      padding-bottom 56px
+  &__info
+    padding-left 400px
+    display flex
+    justify-content flex-start
+    align-items center
+    color blackText
+    @media $lg-and-smaller
+      flex-direction column
+      padding-left 350px
+    @media $md-and-smaller
+      width 100%
+      padding-left 0
+      justify-content center
+    @media $sm-and-smaller
+      padding-left 0
+      padding-bottom 20px
+      text-align center
+  &__title
+    padding-bottom 5px
+    color black
+    @media $md-and-smaller
+      padding-bottom 24px
+    @media $sm-and-smaller
+      width 100%
+      text-align center
+    @media $xs-and-smaller
+      width 70%
+      text-align center
+  &__bg
+    size(381px, 238px)
+    position absolute
+    top 55%
+    left 15px
+    transform translateY(-50%)
+    @media $lg-and-smaller
+      transform translateY(-50%) scale(.9)
+      left 0
+    @media $md-and-smaller
+      position static
+      transform initial
+      top initial
+      left initial
+    @media $xs-and-smaller
+      width 100%
+      height auto
+      margin-bottom 20px
+  &__image
+    size(100%)
+    display block
+  &__img
+    size(100%)
+  &__form
+    display flex
+    flex-wrap wrap
+    width 500px
+    height 44px
+    background white
+    box-shadow 0 4px 8px rgba(0, 0, 0, 0.03)
+    border-radius 8px
+    overflow hidden
+    @media $sm-and-smaller
+      width 100%
+    @media $xs-and-smaller
+      flex-direction column
+      height auto
+      background none
+  &__label
+    size(70%, 100%)
+    position relative
+    @media $xs-and-smaller
+      margin-bottom 15px
+      width 100%
+      height 44px
+      border-radius 8px
+      background white
+      overflow hidden
+    svg
+      size(20px)
+      position absolute
+      top 50%
+      transform translateY(-50%)
+      left 22px
+      opacity .6
+  &__input
+    padding 0 20px 0 55px
+    size(100%)
+    transition()
+    border 1px solid transparent
+    border-right none
+  &__input:focus
+    border 1px solid accentColor
+    border-top-left-radius 9px
+    border-bottom-left-radius 9px
+  &__submit
+    size(30%, 100%)
+    background accentColor
+    color white
+    padding 0
+    border none
+    font-weight 600
+    border-radius none
+    transition()
+    &:hover
+      background accentHoverColor
+    @media $xs-and-smaller
+      width 100%
+      height 44px
+      border-radius 8px
+.banner-full__image
+  width 100%
+  height 100%
+  display block
+.banner-full__img
+  width 100%
+  height 100%

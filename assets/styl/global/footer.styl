@@ -1,0 +1,173 @@
+.footer
+  width 100%
+  &--wrap
+    width 100%
+    flex 0 0 auto
+  &--high
+    width 100%
+    background-color #F8F8F8
+  &--low
+    width 100%
+    background-color #303030
+  &__high
+    width 100%
+    padding 0 100px
+    @media $xl-and-smaller
+      padding 0
+    @media $xs-and-smaller
+      padding 0 18px
+  &__low
+    size(100%, 64px)
+    display flex
+    justify-content space-between
+    align-items center
+    padding 0 100px
+    @media $xl-and-smaller
+      padding 0
+    @media $lg-and-smaller
+      padding 10px 0
+      flex-direction column-reverse
+      height 90px
+      justify-content space-around
+    @media $sm-and-smaller
+      height auto
+      padding 20px 0 0
+    @media $xs-and-smaller
+      padding 20px 18px 0
+  &__nav
+    width 100%
+    display flex
+    flex-wrap wrap
+    padding-top 40px
+  &__item
+    width 25%
+    @media $lg-and-smaller
+      width 50%
+      margin-bottom 40px
+    @media $xs-and-smaller
+      width 100%
+    .social
+      padding-top 16px
+  &__social
+    width 100%
+    display flex
+    justify-content flex-start
+    align-items center
+    @media $xs-and-smaller
+      flex-direction column
+      align-items flex-start
+  &__copyright
+    display flex
+    justify-content flex-start
+    align-items center
+    @media $sm-and-smaller
+      width 100%
+      flex-direction column-reverse
+      align-items flex-start
+    .text_14:first-child
+      padding-right 30px
+      @media $sm-and-smaller
+        padding-right 0
+    .text_14
+      color rgba(255,255,255,.5)
+      @media $sm-and-smaller
+        margin-bottom 20px
+  &__privacy
+    display flex
+    justify-content flex-end
+    align-items center
+    @media $sm-and-smaller
+      width 100%
+      flex-direction column
+      align-items flex-start
+    .text_14:first-child
+      padding-right 30px
+      @media $sm-and-smaller
+        padding-right 0
+    .text_14
+      color rgba(255,255,255,1)
+      transition()
+      @media $sm-and-smaller
+        margin-bottom 20px
+      &:hover
+        opacity .5
+  &__sub
+    padding-top 10px
+  &__list
+    width 100%
+    &--item
+      padding-top 16px
+    &--link
+      transition()
+      &:hover
+        color accentColor
+  &__text
+    color blackText
+    opacity .5
+  &__logo
+    padding-bottom: 17px
+  &__call
+    width 100%
+    &--text
+      padding 16px 0 14px
+      font-weight bold
+    &--link
+      padding-bottom 14px
+      font-weight bold
+      display inline-block
+      transition()
+      &:hover
+        color accentColor
+  &__social
+    width 100%
+    padding-bottom 23px
+    .social
+      padding-left 20px
+      @media $md-and-smaller
+        padding-left 0
+        padding-top 16px
+
+
+.social
+  width max-content
+  display flex
+  justify-content flex-start
+  align-items center
+  &__item
+    margin-right 16px
+  &__link
+    size(36px)
+    display flex
+    justify-content center
+    align-items center
+    border-radius 50%
+    transition()
+    &:hover
+      transform translateY(-8px)
+  &__svg
+    size(50%)
+    fill white
+
+.btn_viber
+  background-color #7F3CD6
+
+.btn_telegram
+  background-color #36B5FD
+
+.btn_wu
+  background-color #19CF6D
+
+.btn_vk
+  background-color rgb(76,117,163)
+
+.btn_facebook
+  background-color rgb(59,89,153)
+
+.btn_od
+  background-color #EE8209
+
+.btn_instagram
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+
+
+

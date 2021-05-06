@@ -1,0 +1,43 @@
+.category
+.subcategory
+  width 100%
+  padding-bottom 20px
+  &--wrap
+    width 100%
+  &__link
+    margin-bottom 20px
+    padding 24px
+    size(100%, 102px)
+    position relative
+    height 102px
+    display flex
+    flex-direction column
+    justify-content space-between
+    align-items flex-start
+    border-radius 8px
+    background-color white
+    border 1px solid #ECECEC
+    box-shadow: 0 5px 9px rgba(180, 185, 200, 0.15)
+    transition()
+    &:hover
+      box-shadow: 0 15px 40px rgba(85, 85, 85, 0.25)
+    &:hover > .text_18
+      color accentColor
+    &:hover > svg
+      opacity 1
+  &__sub
+    color blackText
+    font-weight 500
+    transition()
+  &__products
+    color #333
+    opacity .5
+  svg
+    size(15px)
+    position absolute
+    top 50%
+    right 24px
+    transform translateY(-50%) rotate(-180deg)
+    fill accentColor
+    opacity 0
+    transition()

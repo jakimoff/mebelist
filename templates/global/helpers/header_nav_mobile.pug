@@ -1,0 +1,23 @@
+.nav_mobile--wrap(:class="{'menu--active': $store.state.mobMenu}")
+  span.nav_mobile__close(
+    @click="$store.dispatch('setMobMenu')"
+    )
+    Icon(:svg="`close`")
+  .nav_mobile
+    ._user(hidden)
+      ._user--this
+        Icon(:svg="`user`" v-if="!$store.state.user.token")
+        Img(:link="`general/menu-img.png`" :alt="$store.state.user.name" :parent="`catalog`" v-else)
+    ._enter(v-if="!$store.state.user.token" hidden)
+      button(@click="$store.dispatch('user/Login')").text_16.btn_global
+        | Войти или зарегистрироваться
+    ._main
+      ul._list
+        li._item(v-for="item in header_mobile_menu" @click="selectItem")
+          nuxt-link(:to="item.slug")._link.text_16
+            | {{ item.text }}
+          span.text_16(v-if="item.slug == 'wishlist'")
+            | {{ wishlist }}
+        li._authorized(v-if="$store.state.user.token")
+          span(@click="$store.dispatch('user/logout')")._link.text_16.exit
+            | Выйти

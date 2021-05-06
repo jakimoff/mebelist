@@ -1,0 +1,15 @@
+.recommended-category--wrap(v-if="products")
+  .container
+    .recommended-category
+      h2.title-global.title_24
+        | Последние просмотренные товары
+      Swiper(
+        :options="swiperOptions"
+        class="swiper"
+        :auto-update="true")
+        SwiperSlide(v-for="(item, key) in products" :key="key")
+          ProductView(:item="item")
+      button(type="button" name="prev").btn_slider.btn_prev
+        Icon(:svg="`arrow-left`")
+      button(type="button" name="next").btn_slider.btn_next
+        Icon(:svg="`arrow-left`")

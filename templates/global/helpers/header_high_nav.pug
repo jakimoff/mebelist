@@ -1,0 +1,5 @@
+.header__menu
+  ul.nav
+    li._item(v-for="item in header_high_menu")
+      nuxt-link(:to="`/information/`+item.slug")._link.text_14
+        | {{ item.text }}

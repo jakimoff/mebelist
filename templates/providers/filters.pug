@@ -1,0 +1,52 @@
+div(v-if="filters")
+  .filter(v-if="filter.length")
+    ._head
+      p._sub.text_14
+        | Выбранные фильтры
+      button(type="button" @click="reset")._reset.text_14
+        | Сбросить все
+    ._main
+      div(v-for="item in filter")
+        span.tag.text_14(v-if="item !== 'string'" @click="toggleOption(item)")
+          | {{ getOptionTitle(item) }}
+          button(type="button" name="close")._close
+            Icon(:svg="`close`")
+  div
+    div(v-for="item in filters")
+      .checked(v-if="item.type == 'checkbox'")
+        p._sub.text_14
+          | {{ item.title }}
+        ._label(v-for="option in item.options")
+          button(type="button" @click="toggleOption(option.id)" :class="{'checked--active' : filter.indexOf(option.id) !== -1 }")._this.text_14
+            | {{ option.title }}
+      div(v-if="item.type == 'from_to'")
+        .inputs
+          p._sub.text_14
+            | {{ item.title }}
+          ._label
+            ._item
+              span.text_14
+                | от
+              input(type="number" @change="toggleOption(`min_`+item.id+`=`+models.min[item.id])" v-model="models.min[item.id]" :placeholder="item.placeholders.min" autocomplete="off")._this.text_14
+            ._item
+              span.text_14
+                | до
+              input(type="number" @change="toggleOption(`max_`+item.id+`=`+models.max[item.id])" v-model="models.max[item.id]" :placeholder="item.placeholders.max" autocomplete="off")._this.text_14
+        .checked(
+          v-if="item.options"
+          v-for="option in item.options"
+          )
+          ._label
+            button(type="button" @click="toggleOption(option.id)" :class="{'checked--active' : filter.indexOf(option.id) !== -1 }")._this.text_14
+              | {{ option.title }}
+      .colors(v-if="item.type == 'color'")
+        p._sub.text_14
+          | {{ item.title }}
+        ._label
+          button(
+            v-for="option in item.options"
+            type="button"
+            :style="`background-color:` + option.title"
+            @click="toggleOption(option.id)"
+            :class="{'colors--active' : filter.indexOf(option.id) !== -1 }"
+            name="colors")._this

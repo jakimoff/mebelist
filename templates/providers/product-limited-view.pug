@@ -1,0 +1,84 @@
+.product-limited
+  ._head
+    h6._sub.text_16
+      | Ограниченное предложение!
+  .product
+    ._photo
+      Img(:link="item.img.src" :alt="item.img.alt" :parent="`product`")
+      ._info
+        span._sale.text_14(v-if="item.sale")
+          | {{ item.sale }}
+        span._new.text_14(v-if="item.new")
+          | новинка
+    ._main
+      h5._title.text_18
+        | {{ item.name }}
+      p._text.text_14
+        span(v-for="attr in item.attr")
+          | {{ attr.name }}: {{ attr.value}}
+      ._pricing
+        span._price.text_18
+          | {{ item.price }}
+        span._price--old.text_18(v-if="item.discount")
+          | {{ item.discount }}
+      p._review.text_14(v-if="item.review")
+        | {{ item.review.name }} (
+        Icon(:svg="`star`")
+        | {{ item.review.rating }})
+      ._nav--wrap
+        ._nav
+          LinkGlobal(:to="`/product/`+item.to" :text="`Подробнее`" :class_name="`text_14`")
+          button(type="button").btn_icon.btn_favorite
+            Icon(:svg="`heart`")
+          button(type="button").btn_icon.btn_ask
+            Icon(:svg="`ask`")
+  ._main
+    ._tabs
+      ._images
+        ._photo(
+          v-for="(pic, key) in item.slider"
+          v-if="key === selected_image"
+        )
+          transition-group(name="fade" tag="div")
+            div(:key="key")
+              Img(
+                :link="pic.img.src"
+                :alt="pic.img.alt"
+                :parent="`product-limited`"
+                )
+      ._controls
+        button(
+          v-for="(pic, key) in item.slider"
+          type="button"
+          @click="selectImg(key)"
+          )._btn
+          Img(:link="pic.img.src" :alt="pic.img.alt" :parent="`product-limited`")
+    ._info
+      h5._title.text_18
+        | {{ item.name }}
+      ._pricing
+        span._price.text_18
+          | {{ item.price }}
+        span._price--old.text_18(v-if="item.discount")
+          | {{ item.discount }}
+      ul._list.text_14
+        li._item(v-for="attr in item.attr")
+          span._key
+            | {{ attr.name }}
+          p._value
+            | {{ attr.value}}
+  ._foot
+    ._fix
+      ._user
+        ._logo
+          Img(:link="item.bottom_logo.src" :alt="item.bottom_logo.alt" :parent="`product-limited`")
+        p._review.text_14(v-if="item.review")
+          | {{ item.review.name }} (
+          Icon(:svg="`star`")
+          | {{ item.review.rating }})
+      ._nav
+        LinkGlobal(:to="`/product/`+item.to" :text="`Подробнее`" :class_name="`text_14`")
+        button(type="button").btn_icon.btn_favorite
+          Icon(:svg="`heart`")
+        button(type="button").btn_icon.btn_ask
+          Icon(:svg="`ask`")

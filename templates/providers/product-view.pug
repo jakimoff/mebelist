@@ -1,0 +1,22 @@
+.product--wrap
+  .product
+    ._photo
+      nuxt-link(:to="`/product/`+item.to")
+        Img(:link="item.img.src" :alt="item.img.alt" :parent="`product`")
+      ._info
+        span._sale.text_14(v-if="item.sale")
+          | {{ item.sale }}
+        span._new.text_14(v-if="item.new")
+          | новинка
+    ._main
+      h5._title.text_18
+        nuxt-link(:to="`/product/`+item.to")
+          | {{ item.name }}
+      p._text.text_14
+        span(v-for="attr in item.attr")
+          | {{ attr.name }}: {{ attr.value}}
+      ._pricing
+        span._price.text_18
+          | {{ item.price }}
+        span._price--old.text_18(v-if="item.discount")
+          | {{ item.discount }}

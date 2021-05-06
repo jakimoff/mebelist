@@ -1,0 +1,57 @@
+header.header--wrap
+  .header--high
+    .container
+      .header
+        ._high
+          ._item
+            ._logo
+              Logo
+            ._location
+              button(type="button" name="location").btn_location.text_13
+                span Москва и область
+                Icon(:svg="`location`")
+          HeaderHighNav
+  .header--low
+    .container
+      .header
+        ._low
+          ._catalog
+            button(
+              @click="onMenu"
+              type="button"
+              ).btn_catalog.text_14.menu_target
+              Icon(:svg="`close`" v-if="showMenu")
+              Icon(:svg="`menu`" v-else)
+              | Каталог товаров
+          ._search
+            HeaderSearch
+          ._profile
+            nuxt-link(:to="`wishlist`" hidden).btn_text.btn_popular.text_14
+              Icon(:svg="`heart`")
+              | Избранное
+            nuxt-link(:to="`user`" hidden).btn_text.btn_profile.text_14
+              Icon(:svg="`user`")
+              | Мой профиль
+        transition(name="fade")
+          HeaderNav(v-if="showMenu")
+  .header--mobile
+    .container
+      .header_mobile
+        ._head
+          button(
+            @click="onMobMenu"
+            type="button"
+            ).menu
+            Icon(:svg="`menu`")
+          Logo
+          nuxt-link(:to="`user`" hidden).btn_user
+            Icon(:svg="`user`")
+        ._search
+          HeaderSearch
+        ._nav
+          nuxt-link(:to="`/catalog`" name="location").btn_text.btn_nav.text_14
+            Icon(:svg="`squad`")
+            | Каталог товаров
+          button(type="button" name="location" hidden).btn_text.btn_popular.text_14
+            Icon(:svg="`heart`")
+            | Избранное

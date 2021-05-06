@@ -1,0 +1,17 @@
+.nav
+  height 100%
+  display flex
+  align-items center
+  justify-content flex-start
+  &__item:not(:last-child)
+    padding-right 32px
+  &__item:last-child
+    .nav__link
+      color #F43C52
+      &:hover
+        color #F43C52
+  &__link
+    color black
+    transition()
+    &:hover
+      color accentColor

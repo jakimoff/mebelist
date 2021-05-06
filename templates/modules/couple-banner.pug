@@ -1,0 +1,13 @@
+.proposition--wrap
+  .container
+    .proposition
+      .link-banner(v-for="item in items")
+        ._head
+          h2._title.title_24
+            | {{ item.title }}
+          p._text.text_16
+            | {{ item.description }}
+        nuxt-link(:to="item.to").btn_global.text_14
+          | Подробнее
+        ._bg
+          Img(:link="item.img.src" :alt="item.img.alt" :parent="`link-banner`")

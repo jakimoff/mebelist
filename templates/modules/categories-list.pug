@@ -1,0 +1,23 @@
+.catalog-product--wrap
+  .catalog-product
+    h2._title.title_24
+      | Каталог товаров
+    div(v-for="category in categories")._sub
+      nuxt-link(:to="category.to").text_16._sub
+        | {{ category.title }}
+      ul._list(v-if="category.items")
+        li._item(v-for="item in (chunk(category.items))[0]")
+          nuxt-link(:to="`/catalog/` + item.to")._link.text_14
+            | {{ item.text }}
+      div(
+        v-if="(chunk(category.items)).length > 1"
+        @click="tab === category.to ? tab = null : tab = category.to"
+        v-text="tab === category.to ? `Скрыть` : `Показать все`"
+        )._more.text_14.cup
+      slide-up-down(
+        :active="tab == category.to"
+        :duration="1000")
+        ul._list(v-if="category.items")
+          li._item(v-for="item in (chunk(category.items))[1]")
+            nuxt-link(:to="`/catalog/` + item.to")._link.text_14
+              | {{ item.text }}

@@ -1,0 +1,19 @@
+.about--wrap
+  .container
+    .about
+      ._photo
+        Img(:link="data.img" :alt="``" :parent="`about`")
+      ._info
+        ul._list
+          li._item(v-for="(item, k) in data.items")
+            span._num.text_14
+              | {{ k+1 }}
+            ._content
+              h3._title.title_20
+                | {{ item.title }}
+              p._text.text_14
+                | {{ item.text }}
+        ._btn
+          nuxt-link(:to="data.to").btn_more.text_14
+            | {{ data.button_text }}
+            Icon(:svg='`arrow-left`')

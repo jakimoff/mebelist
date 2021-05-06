@@ -1,0 +1,139 @@
+.product
+  width 100%
+  background-color white
+  margin-bottom 32px
+  border-radius 8px
+  .product__nav--wrap
+    @media $xs-and-smaller
+      display block
+  @media $xs-and-smaller
+    margin-bottom 24px
+  &:hover .product__nav--wrap
+    //opacity: 1
+    //height: 100%
+    display block
+  &:hover .product__photo
+    border-radius 8px
+  &--wrap
+    width 100%
+    position relative
+  &__photo
+    size(100%, 220px)
+    position relative
+    overflow hidden
+    border-radius 8px 8px 8px 8px
+  &__image
+    size(100%)
+    display block
+  &__img
+    size(100%)
+    object-fit cover
+    object-position center center
+  &__info
+    width 100%
+    display flex
+    justify-content flex-start
+    align-items center
+    position absolute
+    bottom 20px
+    left 20px
+  &__main
+    padding 16px 20px 28px
+    display flex
+    flex-direction column
+    justify-content flex-start
+    align-items flex-start
+    background-color white
+    border-radius 0 0 8px 8px
+  &__title
+    color blackText
+    font-weight 600
+    a
+      transition()
+      &:hover
+        color: accentColor
+  &__text
+    padding 12px 0 16px
+    color blackText
+    opacity .5
+    span
+      display block
+  &__pricing
+    padding-bottom 16px
+    width 100%
+    display flex
+    justify-content flex-start
+    align-items center
+  &__price
+    font-weight bold
+    color black
+    margin-right 16px
+    text-transform uppercase
+    &--old
+      color #B7BABD
+      text-transform uppercase
+      text-decoration line-through
+      font-weight bold
+  &__review
+    width 100%
+    display flex
+    justify-content flex-start
+    align-items center
+    color blackText
+    svg
+      size(15px)
+      fill #FFC700
+  &__nav
+    padding-top 22px
+    width 100%
+    display flex
+    justify-content flex-start
+    align-items center
+    &--wrap
+      //opacity: 0
+      //transition()
+      //height: 0
+      display none
+      width 100%
+    .btn_icon
+      margin-left 10px
+
+
+@keyframes productView {
+  0% {
+    width: 100%
+    top: 0
+    left: 0
+    z-index: 1
+    padding: 0
+    position: absolute
+    box-shadow: none
+  }
+  100% {
+    width: calc(100% + 40px)
+    padding: 20px 20px 0
+    top: -20px
+    left: -20px
+    position: absolute
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15)
+  }
+}
+@keyframes productViewReverse {
+  0% {
+    width: calc(100% + 40px)
+    padding: 20px 20px 0
+    top: -20px
+    left: -20px
+    position: absolute
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15)
+  }
+  100% {
+    width: 100%
+    top: 0
+    left: 0
+    z-index: 1
+    padding: 0
+    position: absolute
+    box-shadow: none
+  }
+}

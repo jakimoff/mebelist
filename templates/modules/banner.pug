@@ -1,0 +1,11 @@
+.banner-full--wrap(v-if="banner")
+  .container
+    .banner-full
+      LinkGlobal(:to="`/` + banner.to" :text="banner.button_text" :class_name="`text_14`")
+      ._info
+        h3._title.title_20
+          | {{ banner.title }}
+        p._text.text_14
+          | {{ banner.description }}
+      ._bg
+        Img(:link="banner.img.src" :alt="banner.img.alt" :parent="`banner-full`")

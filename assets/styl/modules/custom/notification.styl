@@ -1,0 +1,56 @@
+.notification
+  width 100%
+  &--wrap
+    width 100%
+    padding 32px 0 80px
+  &__aside
+    padding 20px 0
+    width 100%
+    background white
+    box-shadow 0 6px 12px rgba(180, 185, 200, 0.05)
+    border-radius 8px
+    @media $md-and-smaller
+      margin-bottom 32px
+  &__main
+    width 100%
+    background white
+    box-shadow 0 6px 12px rgba(180, 185, 200, 0.05)
+    border-radius 8px
+    padding 20px
+  &__box
+    top 0
+  &__item
+    width 100%
+  &__btn
+    width 100%
+    height 32px
+    padding 0 20px
+    background none
+    border none
+    text-align left
+    transition()
+    position relative
+    &:hover
+      color accentColor
+    &::before
+      opacity 0
+      content ""
+      position absolute
+      top 0
+      left 0
+      height 100%
+      width 4px
+      background-color accentColor
+      transition()
+  &--active
+    &::before
+      opacity 1
+  &__title
+    padding-bottom 30px
+  &__text
+    padding-bottom 15px
+  .select-gl
+    margin-bottom 32px
+    width 100%
+    &__this
+      width 100%

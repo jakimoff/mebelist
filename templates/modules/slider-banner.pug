@@ -1,0 +1,52 @@
+.welcome--wrap
+  .container
+    .welcome
+      ._slider
+        Swiper(
+          v-if="slider_banner"
+          :options="swiperOptions"
+          class="swiper"
+          :auto-update="true")
+          SwiperSlide(v-for="(item, key) in slider_banner.slides" :key="key")
+            .welcome_slide(data-swiper-parallax-opacity="0")
+              ._bg
+                Img(:link="item.img.src" :alt="item.img.alt" :parent="`welcome_slide`")
+              ._info
+                h1._title.title_32(data-swiper-parallax="-100" data-swiper-parallax-opacity="0.4")
+                  | {{ item.title }}
+                p._text.text_18(data-swiper-parallax="-100" data-swiper-parallax-opacity="0.4")
+                  | {{ item.text }}
+                nuxt-link(:to="item.to" data-swiper-parallax="-50" data-swiper-parallax-opacity="0").btn_global.btn_white.text_14
+                  span Перейти в каталог
+          .swiper-container-horizontal
+            .swiper-pagination
+          button(type="button" name="prev").btn_slider.btn_prev
+            Icon(:svg="`arrow-left`")
+          button(type="button" name="next").btn_slider.btn_next
+            Icon(:svg="`arrow-left`")
+      ._links
+        .link-banner.orange(
+          v-if="slider_banner"
+        )
+          ._head
+            h6._title.text_18
+              | {{ slider_banner.banners.top.title }}
+            p._text.text_14
+              | {{ slider_banner.banners.top.text }}
+          nuxt-link(:to="slider_banner.banners.top.to")._this.text_14
+            | Подробнее
+          ._bg
+            Img(:link="slider_banner.banners.top.img.src" :alt="slider_banner.banners.top.img.alt" :parent="`link-banner`")
+        .link-banner.purple(
+          v-if="slider_banner"
+        )
+          ._head
+            h6._title.text_18
+              | {{ slider_banner.banners.bottom.title }}
+            p._text.text_14
+              | {{ slider_banner.banners.bottom.text }}
+          nuxt-link(:to="slider_banner.banners.bottom.to")._this.text_14
+            | Подробнее
+          ._bg
+            Img(:link="slider_banner.banners.bottom.img.src" :alt="slider_banner.banners.bottom.img.alt" :parent="`link-banner`")
+

@@ -1,0 +1,375 @@
+.header
+  width 100%
+  position relative
+  &--wrap
+    width 100%
+    background-color white
+    position relative
+    z-index 99
+  &--high
+    width 100%
+    @media $lg-and-smaller
+      display none
+  &__high
+    size(100%, 57px)
+    display flex
+    justify-content space-between
+    align-items center
+  &--low
+    position relative
+    width 100%
+    border-top 1px solid borderColor
+    border-bottom 1px solid borderColor
+    @media $lg-and-smaller
+      display none
+  &__low
+    size(100%, 83px)
+    display flex
+    justify-content space-between
+    align-items center
+  &--mobile
+    display none
+    @media $lg-and-smaller
+      display block
+  &__item
+    display flex
+    justify-content flex-start
+    align-items center
+  &__catalog
+    width 253px
+  &__search
+    margin-right: auto
+  &__profile
+    display flex
+    justify-content flex-end
+    align-items center
+  &_mobile
+    width 100%
+    background white
+    &__head
+      padding 13px 0 15px
+      width 100%
+      display flex
+      justify-content space-between
+      align-items center
+    &__search
+      width 100%
+      .search
+        width 100%
+        max-width 100%
+        &__input
+          padding 0 20px 0 40px
+        &__submit
+          right initial
+          top 50%
+          left 14px
+          transform translateY(-50%)
+          background none
+          border none
+          size(15px)
+          svg
+            size(15)
+            fill black
+        &--wrap
+          width 100%
+    &__nav
+      padding 20px 0
+      width 100%
+      display flex
+      justify-content space-between
+      align-items center
+
+.logotype
+  size(179px, 34px)
+  display flex
+  justify-content center
+  align-items center
+  margin-left auto
+  margin-right auto
+  &__img
+    width 100%
+  svg
+    size(100%)
+
+.search
+  size(100%, 44px)
+  position relative
+  background white
+  overflow hidden
+  &_history, &_find
+    //display none
+    padding 20px 12px
+    width 100%
+    position absolute
+    left 0
+    top calc(100% + 8px)
+    z-index 40
+    background-color white
+    border-radius 8px
+    box-shadow 0 15px 40px rgba(0, 0, 0, 0.15)
+    @media $xs-and-smaller
+      border-radius 0
+      left: -20px
+      top 100%
+      width calc(100% + 40px)
+      box-shadow none
+    &__list
+      width 100%
+    &__item
+      width 100%
+    &__link
+      display block
+      padding 10px 10px
+      width 100%
+      border-radius 8px
+      transition()
+      &:hover
+        background-color #F8F8F8
+        color accentColor
+    &__main
+      width 100%
+    &__head
+      width 100%
+      padding 10px
+    &__text
+      color blackText
+      opacity .5
+  &--wrap
+    position relative
+    width 560px
+    z-index 100
+  &__input::placeholderdfdf
+    color #252525
+  &__input
+    border 1px solid #E0E0E0
+    border-radius 8px
+    padding 0 76px 0 20px
+    size(100%)
+    transition()
+    color black
+    background transparent
+  &__input:focus
+    border 1px solid accentColor
+  &__submit
+    padding 0
+    display flex
+    justify-content center
+    align-items center
+    position absolute
+    top 0
+    right 0
+    size(56px, 100%)
+    border-radius 0 8px 8px 0
+    background accentColor
+    border none
+    transition()
+    &:hover
+      background accentHoverColor
+    &:hover > svg
+      transform scale(.95)
+    svg
+      size(22px)
+      fill white
+      transition()
+
+.catalog
+  size(100%, 388px)
+  display flex
+  justify-content flex-start
+  align-items flex-start
+  background white
+  border-radius 8px
+  box-shadow activeShadow
+  &--wrap
+    width 100%
+    position absolute
+    top calc(100% - 10px)
+    left 0
+    z-index 99
+  &__nav
+    padding 24px 10px 0
+    size(20%, 100%)
+    border-right 1px solid borderColor
+  &__main
+    padding 24px 20px
+    size(80%, 100%)
+    position relative
+  &__btn
+    padding 0 22px
+    size(100%, 36px)
+    background-color white
+    color blackText
+    text-align left
+    border-radius 8px
+    border none
+    transition()
+    &:hover
+      background-color #F8F8F8
+      color accentColor
+  &__box
+    size(100%)
+    display block
+    position absolute
+  &__content
+    size(100%)
+    display flex
+    justify-content flex-start
+    align-items flex-start
+    position relative
+  &__list
+    position relative
+    padding-right 70px
+    width max-content
+    display flex
+    flex-direction column-reverse
+    justify-content flex-start
+    align-items flex-start
+    z-index 10
+  &__item
+    margin-bottom 7px
+    line-height 30px
+  &__link
+    color blackText
+    transition()
+    &:hover
+      color accentColor
+  &__photo
+    size(381px, 238px)
+    position absolute
+    bottom 44px
+    right 40px
+    z-index 1
+  &__image
+    size(100%)
+    display block
+  &__img
+    size(100%)
+
+.menu-active
+  background-color #F8F8F8
+  a
+    color accentColor
+    &:hover
+      color accentColor
+
+.nav_mobile
+  size(100%, 100vh)
+  max-width 326px
+  min-width 320px
+  padding-bottom 40px
+  background-color white
+  border-radius 0 8px 8px 0
+  overflow-y auto
+  overflow-x hidden
+  @media (max-width: 370px)
+    overflow-x initial
+  &--wrap
+    width max-content
+    position fixed
+    top 0
+    left 0
+    z-index 999
+    transform translateX(-140%)
+    transition()
+  &__user
+    width 100%
+    padding 32px 0
+    display flex
+    justify-content center
+    align-items center
+    &--this
+      size(80px)
+      display flex
+      justify-content center
+      align-items center
+      background-color #F7F7F7
+      background-position: center center
+      background-size: cover
+      border 2px solid #F2F2F2
+      border-radius 50%
+      position relative
+      svg
+        size(30px)
+        fill #BDBDBD
+  &__enter
+    padding 0 23px
+    width 100%
+    padding-bottom 35px
+    .btn_global
+      size(100%, 56px)
+  &__image
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%,-50%)
+    size(100%)
+    display block
+    z-index 10
+  &__img
+    size(100%)
+    object-fit cover
+    object-position center center
+  &__main
+    width 100%
+  &__list
+    padding 0 40px
+    width 100%
+  &__item, &__authorized
+    size(100%, 56px)
+    display flex
+    justify-content space-between
+    align-items center
+    border-bottom 1px solid rgba(0,0,0,.1)
+  &__link
+    color black
+    &:hover
+      color black
+  .exit
+    color #EB5757
+    cursor pointer
+  &__close
+    position absolute
+    cursor pointer
+    top 16px
+    right: -40px
+    size(24px)
+    display flex
+    justify-content center
+    align-items center
+    z-index 9991
+    @media (max-width: 370px)
+      right 20px
+
+    svg
+      size(100%)
+      fill white
+      @media (max-width: 370px)
+        fill black
+        opacity .5
+
+.overflow
+  overflow hidden!important
+
+.overlay
+  opacity 0
+  display none
+  size(100%)
+  position fixed
+  top 0
+  left 0
+  z-index 2
+  background rgba(0,0,0,.56)
+  @media $xs-and-smaller
+    opacity 1
+
+.overlay-global
+  //display none
+  size(100%)
+  position fixed
+  top 0
+  left 0
+  z-index 666
+  background rgba(0,0,0,.56)
+
+.menu--active
+  transform translateX(0)!important

@@ -1,0 +1,17 @@
+.rss--wrap(v-if="rss")
+  .container
+    .rss
+      ._bg
+        Img(:link="rss.img.src" :alt="rss.img.alt" :parent="`banner-full`")
+      ._info(v-if="!thanks")
+        h3._title.title_20
+          | {{ rss.title }}
+        form._form
+          ._label
+            input(type="email" v-model="email" name="email" placeholder="Электронная почта")._input.text_14
+            Icon(:svg="`email`")
+          button(type="button" @click="subscribe")._submit
+            | Подписаться
+      ._info(v-else)
+        h3._title.title_20
+          | {{ thanks }}

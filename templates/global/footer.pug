@@ -1,0 +1,106 @@
+footer.footer--wrap
+  .footer--high
+    .container
+      .footer
+        ._high
+          ._nav
+            ._item
+              h5._sub.text_16
+                | Маркетплейс
+              ul._list
+                li._list--item
+                  nuxt-link(:to="`/information/about`")._list--link.text_14
+                    | О сервисе
+                li._list--item
+                  nuxt-link(:to="`/information/contacts`")._list--link.text_14
+                    | Контакты
+                li._list--item
+                  nuxt-link(:to="`/information/bank`")._list--link.text_14
+                    | Реквизиты
+                li._list--item
+                  nuxt-link(:to="`/information/partners`")._list--link.text_14
+                    | Партнерская программа
+            ._item
+              h5._sub.text_16
+                | Маркетплейс
+              ul._list
+                li._list--item
+                  nuxt-link(:to="`/information/delivery`")._list--link.text_14
+                    | Принцип и правила работы с сайтом
+                li._list--item
+                  nuxt-link(:to="`/information/delivery`")._list--link.text_14
+                    | Доставка
+                li._list--item
+                  nuxt-link(:to="`/information/payment`")._list--link.text_14
+                    | Оплата
+                li._list--item
+                  nuxt-link(:to="`/catalog/special`")._list--link.text_14
+                    | Акции
+            ._item
+              h5._sub.text_16
+                | Маркетплейс
+              ul._list
+                li._list--item
+                  nuxt-link(:to="`/information/quit-start`")._list--link.text_14
+                    | Как начать продавать на площадке
+                li._list--item
+                  nuxt-link(:to="`/information/partners`")._list--link.text_14
+                    | Приглашение к сотрудничеству
+                li._list--item
+                  nuxt-link(:to="`user`")._list--link.text_14
+                    | Вход в личный кабинет
+                li._list--item
+                  nuxt-link(:to="`/information/rules`")._list--link.text_14
+                    | Условия
+            ._item
+              ._logo
+                Logo
+              p._text.text_14
+                | Мебельный маркетплейс России
+              ._call
+                p._call--text.text_14
+                  | Есть вопросы? Звоните!
+                a(href="tel:+388005504545")._call--link.title_20
+                  | 8 (800) 550-45-45
+              p._text.text_14
+                | Или пишите!
+              ul.social
+                li._item
+                  a(href="#")._link.btn_viber
+                    Icon(:svg="`viber`" :class_name="`social__svg`")
+                li._item
+                  a(href="#")._link.btn_telegram
+                    Icon(:svg="`telegram`" :class_name="`social__svg`")
+                li._item
+                  a(href="#")._link.btn_wu
+                    Icon(:svg="`whats-up`" :class_name="`social__svg`")
+          ._social
+            p._text.text_14
+              | Маркетплейс Mebelist в социальных сетях:
+            ul.social
+              li._item
+                a(href="#")._link.btn_vk
+                  Icon(:svg="`vk`" :class_name="`social__svg`")
+              li._item
+                a(href="#")._link.btn_facebook
+                  Icon(:svg="`facebook`" :class_name="`social__svg`")
+              li._item
+                a(href="#")._link.btn_od
+                  Icon(:svg="`od`" :class_name="`social__svg`")
+              li._item
+                a(href="#")._link.btn_instagram
+                  Icon(:svg="`instagram`" :class_name="`social__svg`")
+  .footer--low
+    .container
+      .footer
+        ._low
+          ._copyright
+            p.text_14
+              | ©{{ (new Date()).getFullYear() }} OOO “Мебелист маркетплейс”
+            p.text_14
+              | Все права защищены
+          ._privacy
+            nuxt-link(:to="`/information/personal`")._link.text_14
+              | Политика обработки персональных данных
+            nuxt-link(:to="`/information/terms`")._link.text_14
+              | Пользовательское соглашение

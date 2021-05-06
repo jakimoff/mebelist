@@ -1,0 +1,6 @@
+# Ignore built files except build/index.js
+assets/js/*
+static/js/*
+plugins/*
+environment/*
+components/providers/Breadcrumbs.vue

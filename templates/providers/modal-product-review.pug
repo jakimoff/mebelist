@@ -1,0 +1,56 @@
+transition(name='modal-merchant' v-if="merchantInfo && show")
+  #modal-contacts(@click="triggerShow")
+    .modal-contacts--wrap(@click.stop)
+      .modal-global
+        span(@click.stop="triggerShow")._close.cup
+          Icon(:svg="`close`")
+        ._head
+          ._logo
+            Img(:link="merchantInfo.img.src" :alt="merchantInfo.img.alt" :parent="`modal-global`")
+          ._user
+            p._review.text_18
+              | {{ merchantInfo.user }}
+        ._recall
+          a(:href="`tel:`+merchantInfo.phone_href")._link.title_20
+            Icon(:svg="`tel`")
+            | {{ merchantInfo.phone }}
+        ._main
+          p._text.text_14
+            | Мы тщательно следим за добросовестностью и профессионализмом продавцов и покупателей. Нам важно знать как прошел звонок.
+          transition(name="opacity" v-if="not_complete")._box
+            ._btn(v-if="!bad_show")
+              span(@click="goodLike").btn_global.text_14.btn_gray#like
+                Icon(:svg="`like`")
+                | Все прошло отлично
+              span(@click="bad_show = true").btn_global.text_14.btn_gray#dislike
+                Icon(:svg="`like`")
+                | Не доволен звонком
+            ._select(v-else)
+              h6._sub.text_14
+                | Что вам не понравилось?
+              .select-gl.select-sort(v-if="reviewsOptions")
+                ._this
+                  button(
+                    type="button"
+                    @click="toggleTab"
+                    :class="{'select__active' : active}"
+                  )._value.text_16
+                    b(v-if="!current_sort")
+                      | Выберите значение:
+                    span(v-text="current_sort")
+                    Icon(:svg="`dropdown`" :class_name="`select-gl__drop`")
+                  transition(name="opacity")
+                    ul._list.text_16(v-show="active")
+                      li._item(
+                        v-for="item in reviewsOptions"
+                        :class="{'selected' : item.title === current_sort }"
+                        @click="selectSort(item)"
+                      )
+                        | {{ item.title }}
+              ._submit
+                button(@click="badLike").btn_global.text_14
+                  | Подтвердить
+                button(@click="cancel").btn_global.text_14.btn_gray
+                  | Отменить
+          div(v-if="!not_complete")._box
+            | Спасибо за предоставленнную информацию. Ваше мнение важно для Нас.

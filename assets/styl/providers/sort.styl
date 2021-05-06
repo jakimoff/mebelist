@@ -1,0 +1,62 @@
+.sort
+  margin-bottom: -8px
+  width 100%
+  &__desktop
+    width 100%
+    display flex
+    justify-content space-between
+    align-items center
+    flex-wrap wrap
+    @media $lg-and-smaller
+      display none
+  &__find
+    width 100%
+    padding 32px 0
+  &__text
+    font-weight 600
+  &--wrap
+    width 100%
+  &__result
+    color blackText
+    @media $lg-and-smaller
+      width 100%
+      padding-bottom 16px
+  &-clear
+    padding-top 40px
+    @media $lg-and-smaller
+      padding-top 0
+  &__mobile
+    width 100%
+    justify-content space-between
+    align-items center
+    display none
+    flex-wrap wrap
+    padding-bottom 5px
+    .select-gl
+      width 200px
+      @media $xs-and-smaller
+        width 48%
+      &__this
+        min-width initial
+        width 100%
+      &__drop
+        top 15px
+      &__value
+        height 40px
+        padding-right 30px
+        &:hover
+          span
+            color accentColor
+        span
+          transition()
+          @media $lg-and-smaller
+            font-size 16px
+      b
+        display none
+    .btn_filter
+      transition()
+      height 40px
+      &:hover
+        color accentColor
+    @media $lg-and-smaller
+      display flex

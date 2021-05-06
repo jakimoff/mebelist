@@ -1,0 +1,7 @@
+.recommend
+  ._info
+    Icon(:svg="`recommend`" :class_name="`recommend__icon`")
+    h2._title.title_24
+      | {{ item.title }}
+  ._bg
+    Img(:link="item.img.src" :alt="item.img.alt" :parent="`recommend`")

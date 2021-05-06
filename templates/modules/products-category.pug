@@ -1,0 +1,28 @@
+.limited--wrap
+  .container
+    .limited
+      h2.title-global.title_24
+        | {{ title }}
+      .row
+        div(
+          v-for="item in products"
+          :class="{'col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12':!aside, 'col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12':aside}"
+        )
+          ProductView(:item="item")
+        div(
+          v-if="recommend !== undefined && recommend !== null && Object.keys(recommend).length !== 0 && recommend.constructor === Object"
+          :class="{'col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12':!aside, 'col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12':aside}"
+        )
+          ProductRecommendView(
+            :item="recommend"
+            :aside="aside"
+          )
+        div(
+          v-for="item in more"
+          :class="{'col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12':!aside, 'col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12':aside}"
+        )
+          ProductView(:item="item")
+      ._more
+        button(@click="load_more").btn_more.text_14
+          | Показать еще
+          Icon(:svg='`arrow-left`')

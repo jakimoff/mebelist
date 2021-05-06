@@ -1,0 +1,200 @@
+div
+  BreadcrumbsSimple
+  TitlePage(:title="title")
+  .container.detailed-page
+    .row.justify-content-center
+      .col-xl-8.col-lg-12.col-md-12.col-sm-12.col-xs-12
+        .detailed--main
+          .detailed--wrap
+            .detailed
+              ._mobile
+                .detailed-info.mobile
+                  ._head
+                    ._btn
+                      span._sale.text_14(v-if="detailer.sale")
+                        | {{ detailer.sale }}
+                      span._new.text_14(v-if="detailer.new")
+                        | новинка
+                      span._last.text_14(v-if="detailer.upper")
+                        | Поднятое обьявление
+                    ._see(v-if="detailer.watches")
+                      span.see.text_14
+                        Icon(:svg="`eye`")
+                        | {{ detailer.watches }}
+              ._nav(v-if="images")
+                ul._list
+                  li._item(v-for="(item, key) in images")
+                    button(type="button" name="slideBtn" @click="slideTo(key)" :class="{'slide--active' : key === current_slide }")._btn
+                      Img(:link="item.src" :alt="item.alt" :parent="`detailed-sm`")
+              ._slider(v-if="images")
+                Swiper(
+                  :options="swiperOptions"
+                  @slideChange="slideChange"
+                  ref="swiperTop"
+                  class="swiper")
+                  SwiperSlide(v-for="(item, key) in images" :key="key")
+                    .detailed-slide(data-swiper-parallax-opacity="0")
+                      Img(:link="item.src" :alt="item.alt" :parent="`detailed-slide`")
+                  button(type="button" name="prev" @click="btnNav(false, $event)").btn_slider.btn_prev
+                    Icon(:svg="`arrow-left`")
+                  button(type="button" name="next" @click="btnNav(true, $event)").btn_slider.btn_next
+                    Icon(:svg="`arrow-left`")
+                .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets
+              ._mobile
+                .detailed-info.mobile
+                  ._main
+                    ._num
+                      span.text_14
+                        | № {{ detailer.num }}
+                      span.text_14
+                        | {{ detailer.publish_date }}
+                    ._price
+                      span.title_32
+                        | {{ detailer.price }} ₽
+                      ._fix
+                        ._item(v-if="detailer.old_price")
+                          span._sub.text_12
+                            | Старая цена
+                          span._price--old.text_14
+                            | {{ detailer.old_price }} ₽
+                        ._item(v-if="detailer.benefit")
+                          span._sub.text_12
+                            | Ваша выгода
+                          span._price--sale.text_14
+                            | {{ detailer.benefit }} ₽
+                    ._col
+                      span.text_14
+                        | Наличие:
+                      p.text_14
+                        | {{ detailer.available }},
+                        b {{ detailer.available_where }}
+                    ._order
+                      span(@click="ShowModal(detailer.comments.user_id)").btn_global.text_14
+                        Icon(:svg="`tel`")
+                        | Заказать
+                  ._foot(v-if="detailer.comments")
+                    ._logo
+                      Img(:link="detailer.comments.img.src" :alt="detailer.comments.img.alt" :parent="`product-limited`")
+                    ._user
+                      p._review.text_14
+                        | {{ detailer.comments.user }}
+            aside.detailed--aside.only_mobile
+              .detailed-info--wrap(v-if="detailer")
+                .detailed-info
+                  ._head
+                    ._btn
+                      span._sale.text_14(v-if="detailer.sale")
+                        | {{ detailer.sale }}
+                      span._new.text_14(v-if="detailer.new")
+                        | новинка
+                      span._last.text_14(v-if="detailer.upper")
+                        | Поднятое обьявление
+                    ._see(v-if="detailer.watches")
+                      span.see.text_14
+                        Icon(:svg="`eye`")
+                        | {{ detailer.watches }}
+                  ._main
+                    ._num
+                      span.text_14
+                        | № {{ detailer.num }}
+                      span.text_14
+                        | {{ detailer.publish_date }}
+                    ._price
+                      span.title_32
+                        | {{ detailer.price }} ₽
+                      ._fix
+                        ._item(v-if="detailer.old_price")
+                          span._sub.text_12
+                            | Старая цена
+                          span._price--old.text_14
+                            | {{ detailer.old_price }} ₽
+                        ._item(v-if="detailer.benefit")
+                          span._sub.text_12
+                            | Ваша выгода
+                          span._price--sale.text_14
+                            | {{ detailer.benefit }} ₽
+                    ._col
+                      span.text_14
+                        | Наличие:
+                      p.text_14
+                        | {{ detailer.available }},
+                        b {{ detailer.available_where }}
+                    ._order
+                      span(@click="ShowModal(detailer.comments.user_id)").btn_global.text_14
+                        Icon(:svg="`tel`")
+                        | Заказать
+                  ._foot(v-if="detailer.comments")
+                    ._logo
+                      Img(:link="detailer.comments.img.src" :alt="detailer.comments.img.alt" :parent="`product-limited`")
+                    ._user
+                      p._review.text_14
+                        | {{ detailer.comments.user }}
+            .description
+              h2._title.title_24
+                | Характеристики
+              ul._list(v-for="item in specifications")
+                li._item(v-for="elem in item.blocks")
+                  span._key.text_14
+                    | {{ elem.title }}
+                  p._value.text_14
+                    | {{ elem.text }}
+      .col-xl-4.col-lg-12.col-md-12.col-sm-12.col-xs-12.d-none.d-sm-block
+        aside.detailed--aside
+          .detailed-info--wrap(v-if="detailer").fix_aside
+            .detailed-info
+              ._head
+                ._btn
+                  span._sale.text_14(v-if="detailer.sale")
+                    | {{ detailer.sale }}
+                  span._new.text_14(v-if="detailer.new")
+                    | новинка
+                  span._last.text_14(v-if="detailer.upper")
+                    | Поднятое обьявление
+                ._see(v-if="detailer.watches")
+                  span.see.text_14
+                    Icon(:svg="`eye`")
+                    | {{ detailer.watches }}
+              ._main
+                ._num
+                  span.text_14
+                    | № {{ detailer.num }}
+                  span.text_14
+                    | {{ detailer.publish_date }}
+                ._price
+                  span.title_32
+                    | {{ detailer.price }} ₽
+                  ._fix
+                    ._item(v-if="detailer.old_price")
+                      span._sub.text_12
+                        | Старая цена
+                      span._price--old.text_14
+                        | {{ detailer.old_price }} ₽
+                    ._item(v-if="detailer.benefit")
+                      span._sub.text_12
+                        | Ваша выгода
+                      span._price--sale.text_14
+                        | {{ detailer.benefit }} ₽
+                ._col
+                  span.text_14
+                    | Наличие:
+                  p.text_14
+                    | {{ detailer.available }},
+                    b {{ detailer.available_where }}
+                ._order
+                  span(@click="ShowModal(detailer.comments.user_id)").btn_global.text_14
+                    Icon(:svg="`tel`")
+                    | Заказать
+              ._foot(v-if="detailer.comments")
+                ._logo
+                  Img(:link="detailer.comments.img.src" :alt="detailer.comments.img.alt" :parent="`product-limited`")
+                ._user
+                  p._review.text_14
+                    | {{ detailer.comments.user }} 
+  ProductsPopular(:id="2")
+  RecentViewProducts
+  Rss(:id="3")
+  ModalProductReview(
+    :id="merchant_id"
+    :show="modalTriggerShow"
+    @trigger-show="modalTriggerShow = !modalTriggerShow"
+  )

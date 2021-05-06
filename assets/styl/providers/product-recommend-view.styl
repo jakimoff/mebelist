@@ -1,0 +1,28 @@
+.recommend
+  width 100%
+  padding 20px
+  display flex
+  flex-direction column
+  justify-content space-between
+  align-items center
+  background-color white
+  border-radius 8px
+  min-height 440px
+  margin-bottom 32px
+  @media $xl-and-smaller
+    min-height 460px
+  @media $lg-and-smaller
+    min-height 440px
+  @media $sm-and-smaller
+    min-height 460px
+  @media $xs-and-smaller
+    margin-bottom 24px
+  &__info
+    width 100%
+  &__icon
+    size(24px)
+    fill accentColor
+  &__title
+    padding-top 30px
+    font-weight 600
+    color blackTexts

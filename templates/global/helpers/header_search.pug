@@ -1,0 +1,14 @@
+.search--wrap
+  form.search(
+    @submit.prevent="onSearch()"
+  )
+    input(
+      type="text"
+      placeholder="Ищите что угодно, например “Кухни угловые”"
+      autocomplete="off"
+      v-model="query"
+      @click="changeShow(true)"
+      @focusin="changeShow(true)"
+    )._input.text_14
+    button(type="submit")._submit
+      Icon(:svg="`search`")

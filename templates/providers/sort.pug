@@ -1,0 +1,32 @@
+.select-gl.select-sort(v-if="items")
+  ._this
+    button(
+      type="button"
+      @click="toggleTab"
+      :class="{'select__active' : active}"
+    )._value.text_14
+      b Сортировать:
+      span(v-text="pc ? current_sort : current_sort_mobile")
+      Icon(:svg="`dropdown`" :class_name="`select-gl__drop`")
+    transition(
+      v-if="pc"
+      name="opacity"
+      )
+      ul._list.text_14(v-show="active")
+        li._item(
+          v-for="item in items"
+          :class="{'selected' : item.text === current_sort }"
+          @click="selectSort(item)"
+          )
+          | {{ item.text }}
+    transition(
+      v-else
+      name="opacity"
+    )
+      ul._list.text_14(v-show="active")
+        li._item(
+          v-for="item in items"
+          :class="{'selected' : item.text === current_sort }"
+          @click="selectSort(item)"
+        )
+          | {{ item.text_mobile }}

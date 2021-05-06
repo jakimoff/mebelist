@@ -1,0 +1,39 @@
+.recommended-category
+  width 100%
+  padding 32px 0 8px
+  @media $sm-and-smaller
+    padding 28px 0 8px
+  &--wrap
+    margin-top 80px
+    width 100%
+    background-color white
+    box-shadow 0 -16px 24px rgba(0, 0, 0, .02)
+    border-radius 24px 24px 0 0
+    @media $sm-and-smaller
+      margin-top 58px
+  &__nav
+    padding-bottom 34px
+    width 100%
+    display flex
+    flex-wrap wrap
+    div
+      display: flex
+      flex-wrap wrap
+    .btn_global
+      margin-right 10px
+      margin-bottom 10px
+      background #F6F6F6
+      border 1px solid #ECECEC
+      color blackText
+      &:hover
+        color blackText
+    .link--active
+      border-color accentColor
+      background-color accentColor
+      color white
+      &:hover
+        color white
+  .product
+    background-color bgGray
+    &__main
+      background-color bgGray

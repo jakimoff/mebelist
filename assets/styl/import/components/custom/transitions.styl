@@ -1,0 +1,72 @@
+.fade_blocks-enter-active
+  -webkit-animation bounceInDown 0.7s ease
+  animation bounceInDown 0.7s ease
+.fade_blocks-leave-active
+  -webkit-animation bounceOutDown 0.7s ease
+  animation bounceOutDown 0.7s ease
+.fade-enter-active
+.fade-leave-active
+  transition opacity .3s
+.fade-enter
+.fade-leave-to
+  opacity 0
+.fade-leave
+.fade-leave-active
+  position absolute
+  display: none
+
+.opacity-enter-active
+.opacity-leave-active
+  transition opacity .3s
+.opacity-enter
+.opacity-leave-to
+  opacity 0
+
+.modal-merchant-enter
+.modal-merchant-leave-to
+  opacity 0
+
+.modal-merchant-enter-active {
+  animation: iziM-comingIn 0.5s ease;
+}
+.modal-merchant-leave-active {
+  animation: iziM-comingOut 0.5s ease;
+}
+
+.menu-modal-enter-active {
+  -webkit-animation: modal-bounceInDown 0.7s ease;
+  animation: modal-bounceInDown 0.7s ease;
+}
+.menu-modal-leave-active {
+  -webkit-animation: modal-bounceOutDown 0.7s ease;
+  animation: modal-bounceOutDown 0.7s ease;
+}
+
+
+.product-transition-enter-active
+.product-transition-leave-active
+  transition all .3s
+.product-transition-enter
+.product-transition-leave-to
+  width 100%
+  top 0
+  left 0
+  z-index 1
+  padding 0
+  position static
+  box-shadow none
+.product-transition-leave
+.product-transition-leave-active
+  width calc(100% + 40px)
+  position absolute
+  top: -20px
+  left: -20px
+  padding 20px 20px 0
+  z-index 5
+  box-shadow 0 15px 40px rgba(0, 0, 0, 0.15)
+  @media $xs-and-smaller
+    position static
+    top initial
+    left initial
+    padding 0
+    width 100%

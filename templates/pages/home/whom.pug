@@ -1,0 +1,8 @@
+.whom--wrap
+  .container
+    .whom
+      h1.title-global.title_32
+        | {{ data.title }}
+      ._btn
+        LinkGlobal(:to="data.button_left.to" :text="data.button_left.text" :class_name="`text_14`")
+        LinkGlobal(:to="data.button_right.to" :text="data.button_right.text" :class_name="`text_14 btn_gray`")
